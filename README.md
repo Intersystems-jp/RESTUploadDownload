@@ -9,14 +9,13 @@ REST経由でファイルのアップロード／ダウンロードを行う
   
 こちらのサンプルでは、以下の手順でファイルの「アップロード／ダウンロード」を行います。  
 
-1. Chose File ボタン押下でアップロードするファイルを選択する
-2. upload ボタン押下で、ファイルをREST通信によりIRISサーバにアップロードする
-3. アップロードされたデータを %request.MimeData で受け取り、サーバの「C:\temp\upload」以下に保存する
+1. ファイルの選択 ボタン押下でアップロードするファイルを選択する。
+2. upload ボタン押下で、ファイルをREST通信によりIRISサーバにアップロードする。
+3. アップロードされたデータを %request.MimeData で受け取り、サーバの「C:\temp\upload」以下に保存する。
 4. Download File リンクを押下し、3 のフォルダに保存したファイルをローカルにダウンロードする。
   
   
 ## 含まれるファイル
-
 * User.REST.xml　　　<font color="ForestGreen">// スタジオインポート用：クラス定義</font>
 * User.REST.cls　　　<font color="ForestGreen">// VSCodeインポート用：クラス定義</font>
 * test.html　　  　　<font color="ForestGreen">// HTMLファイル</font> 
