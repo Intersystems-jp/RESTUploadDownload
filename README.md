@@ -34,19 +34,17 @@ REST経由でファイルのアップロード／ダウンロードを行う
 ※Webサーバに置く際は、任意の場所においてください。
 [http://localhost/test.html]
 
-#### 2. ファイルを選択 をクリックし、ファイルを選択します。
-![image](https://user-images.githubusercontent.com/24215130/188342333-dfea209d-ef8b-48d5-93e9-89c94efab401.png)
+#### 2. ファイルを選択 をクリックし、アップロードしたいファイルを選択します。
+![image](https://github.com/rkake/RESTUploadDownload/assets/24215130/dfbf193d-00d2-48d1-8dcc-41c6f5e28821)
 
 #### 3．Upload をクリックします。
-![image](https://user-images.githubusercontent.com/24215130/188342428-c5dca21b-d109-4f32-b184-5ff851b7f93c.png)
+![image](https://github.com/rkake/RESTUploadDownload/assets/24215130/d6983fff-792c-455d-bc84-2e89eeed6162)
 
 #### 4. upload に成功すると「アップロード成功」のダイアログが表示されます。
-![image](https://user-images.githubusercontent.com/24215130/188343003-8a1b0205-43fc-417d-99e3-f76384e70ee5.png)
+![image](https://github.com/rkake/RESTUploadDownload/assets/24215130/808283cd-6fe0-4297-bc17-45b0dc8520ee)
 
 #### 5. Download Files をクリックすると、4 でアップロードしたファイルが既定の場所にダウンロードされます。
-  
-![image](https://user-images.githubusercontent.com/24215130/188342926-e1c8dad8-16f8-4004-8f18-2846a7fef339.png)
-
+![image](https://github.com/rkake/RESTUploadDownload/assets/24215130/b750656e-2782-46e5-9ffe-e1b093224fb1)
 
 ~~~
 
