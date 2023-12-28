@@ -1,10 +1,10 @@
 # RESTUploadDownload
-REST経由でファイルのアップロード／ダウンロードを行う
+ IRIS REST API でファイルのアップロード／ダウンロードを行う
 
 ## サンプルコードについて
 この Git のサンプルコードは、[InterSystems 開発者コミュニティ](https://jp.community.intersystems.com/)に公開している以下記事のサンプルコードです。  
   
-[Web経由でイメージファイルを IRIS にアップロード／ダウンロードする方法](https://jp.community.intersystems.com/node/525251)
+[IRIS REST API でファイルのアップロード／ダウンロードを行う方法](https://jp.community.intersystems.com/node/525251)
 
   
 こちらのサンプルでは、以下の手順でファイルの「アップロード／ダウンロード」を行います。  
