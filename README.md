@@ -4,11 +4,12 @@
 ## サンプルコードについて
 この Git のサンプルコードは、[InterSystems 開発者コミュニティ](https://jp.community.intersystems.com/)に公開している以下記事のサンプルコードです。  
   
-[IRIS REST API でファイルのアップロード／ダウンロードを行う方法](https://jp.community.intersystems.com/node/525251)
+[IRIS REST API でファイルのアップロード／ダウンロードを行う方法](https://jp.community.intersystems.com/node/556841)
 
   
 こちらのサンプルでは、HTML形式のファイルより IRIS REST API を呼び出してファイルの「アップロード／ダウンロード」を行います。  
 
+## 手順
 1. ファイルの選択 ボタン押下でアップロードするファイルを選択する。
 2. upload ボタン押下で、ファイルをREST通信によりIRISサーバにアップロードする。
 3. アップロードされたデータを %request.MimeData で受け取り、サーバの「C:\temp\upload」以下に保存する。
@@ -22,7 +23,7 @@
 
   
 ## セットアップ方法
-動作確認バージョンIRIS　V2018.1以降
+動作確認バージョンIRIS　V2023.1.2
  
 ファイルをインポート・コンパイルします。
 
@@ -30,7 +31,7 @@
 ## 実行方法
 
 #### 1. test.html を Web ブラウザで開きます。
-※Webサーバに置く際は、任意の場所においてください。
+※Webサーバに置く際は、指定の場所においてください。
 [http://localhost/test.html]
 
 #### 2. ファイルを選択 をクリックし、アップロードしたいファイルを選択します。
