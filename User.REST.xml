@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2023.1.2 (Build 450U)" ts="2024-01-25 17:01:42">
+<Class name="User.REST">
+<Super>%CSP.REST</Super>
+<TimeChanged>66864,57304.1289067</TimeChanged>
+<TimeCreated>66827,52808.7179577</TimeCreated>
+
+<Parameter name="HandleCorsRequest">
+<Default>1</Default>
+</Parameter>
+
+<XData name="UrlMap">
+<XMLNamespace>http://www.intersystems.com/urlmap</XMLNamespace>
+<Data><![CDATA[
+<Routes>
+<Route Url="/upfile" Method="POST" Call="postFile"/>
+<Route Url="/getfile" Method="GET" Call="getFile"/>
+</Routes>
+]]></Data>
+</XData>
+
+<Method name="postFile">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+    // upload された File を一旦 C:\temp\upload に保存する
+    set upload=%request.MimeData("myfile", 1)
+    set fname1=##class(%File).GetFilename(upload.FileName)
+    set fname="C:\temp\upload\"_fname1
+    
+    // ダウンロード用にファイル名を一時グローバルに保存
+    set ^IRIS.TempFname=fname
+    
+    set file=##class(%File).%New(fname)
+    do file.Open("NWUK\BIN\")    
+    do file.CopyFrom(upload)
+    set st = file.%Save()
+    
+    // アップロード失敗時はエラーを戻して処理終了
+    if 'st {
+        write "アップロード失敗"
+        quit st
+    } 
+    do file.Close()
+
+    write "アップロード成功"
+    quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="getFile">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	
+     // ファイルの確認
+     set fpath=$G(^IRIS.TempFname)
+     if ##class(%File).Exists(fpath)=0 {
+	     write "ダウンロード対象ファイルがありません"
+	     quit
+	 }
+	 
+	 set fname = ##class(%File).GetFilename(fpath)
+     set %response.ContentType=..GetFileContentType($p(fpath,".",*))
+     do %response.SetHeader("Content-Disposition","attachment;filename="_fname)
+     set strm=##class(%Stream.FileBinary).%New()
+     set st=strm.LinkToFile(fpath)
+     do strm.OutputToDevice()
+     
+     // ダウンロード後、一時グローバルは消す。必要に応じてファイルも削除する。
+     kill ^IRIS.TempFname
+     do ##class(%File).Delete(fpath)
+          
+     Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetFileContentType">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>pFileType</FormalSpec>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+    if pFileType="png" quit "image/png"
+    if pFileType="jpg" quit "image/jpeg"
+    if pFileType="gif" quit "image/gif"
+    if pFileType="pdf" quit "application/pdf"
+    if pFileType="docx" quit "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    if pFileType="xlsx" quit "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    
+    quit "application/octet-stream; charset=Shift_JIS"    // その他。日本語を含むtxtやcsvもこちら。Windowsの場合は charset=Shift_JIS
+]]></Implementation>
+</Method>
+</Class>
+</Export>

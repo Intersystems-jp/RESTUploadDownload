@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>File Upload/Download</title>
+<script language="JavaScript">
+function sendFile() {
+   up = document.getElementById("myfile");
+   file = myfile.files[0];
+
+   fd = new FormData();
+   fd.append("myfile", file);
+        
+   xmlhttp = new XMLHttpRequest();
+   xmlhttp.onload = function () {
+         document.getElementById('myfile').value = '';
+         alert(xmlhttp.responseText);
+   };
+
+   xmlhttp.open("POST", "http://127.0.0.1/csp/user/rest2/upfile", true);
+   xmlhttp.send(fd);
+}
+
+</script>
+</head>
+<body>
+    <input id="myfile" type="file" />
+    <button id="btn" onClick="sendFile()">Upload</button>
+    <hr>
+    <div id="downloadLink"></div>
+    <a href="http://127.0.0.1/csp/user/rest2/getfile">Download File</a><br> 
+</body>
+</html>
