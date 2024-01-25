@@ -18,9 +18,9 @@
   
 ## 含まれるファイル
 * User.REST.xml　　　<font color="ForestGreen">// スタジオインポート用：クラス定義</font>
-* User.REST.cls　　　<font color="ForestGreen">// VSCodeインポート用：クラス定義</font>
-* test.html　　  　　<font color="ForestGreen">// HTMLファイル</font> 
-
+* REST.cls　　　　　<font color="ForestGreen">// VSCodeインポート用：クラス定義</font>
+* test.html　　 　 　<font color="ForestGreen">// HTMLファイル</font> 
+　
   
 ## セットアップ方法
 動作確認バージョンIRIS　V2023.1.2
@@ -32,7 +32,7 @@
 
 #### 1. test.html を Web ブラウザで開きます。
 ※Webサーバに置く際は、指定の場所においてください。
-[http://localhost/test.html]
+[http://localhost/test.html](http://localhost/test.html)
 
 #### 2. ファイルを選択 をクリックし、アップロードしたいファイルを選択します。
 ![image](https://github.com/rkake/RESTUploadDownload/assets/24215130/dfbf193d-00d2-48d1-8dcc-41c6f5e28821)
